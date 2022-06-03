@@ -1,10 +1,15 @@
+@use "Fonts";
+@use "Colors";
+
 *{
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
 }
 body{
-    
+    font-family: Fonts.$InterFont;
+    font-weight: Fonts.$FontWeight_500;
+    //background: radial-gradient(circle at center,#502D7B, rgba(69, 172, 216, 0));
 }
 .Container{
     .Navigation{
@@ -12,6 +17,83 @@ body{
             .Container{
                 width: 1244px;
                 margin: auto;
+                .LogoWrapper{
+                    .LogoImage{
+                    cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    .GenerateUrl{
+        margin-top: 150px;
+        main{
+            .Container{
+                width: 1244px;;
+                margin: auto;
+                .SectionTitle, .SectionDescription{
+                    text-align: center;
+                }
+                .SectionTitle{
+                    font-size: Fonts.$FontSize_64px;
+                    width: 681px;
+                    margin: auto;
+                }
+                .SectionDescription{
+                    width: 803px;
+                    margin: auto;
+                    font-size: Fonts.$FontSize_18px;
+                    margin-top: 24px;
+                    line-height: 150%;
+                }
+                .GenerateUrlInputs{
+                    margin: auto;
+                    width: 790px;
+                    margin-top: 46px;
+                    .UrlInput{
+                        position: relative;
+                        width: 712px;
+                        padding: 16px 32px 16px 32px;
+                        border-radius: 10px;
+                        border: 1px Colors.$Grey solid;
+                        outline: 0 none;
+                        &::placeholder{
+                            color: Colors.$DarkGrey;
+                        }
+                    }
+                    .GenerateUrlBtn{
+                        position: absolute;
+                        padding: 16px 32px 16px 32px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        border: 1px Colors.$Grey solid;
+                        outline: 0 none;
+                        background-color: Colors.$Black;
+                        color: Colors.$White;
+                        font-weight: Fonts.$FontWeight_700;
+                        font-size: Fonts.$FontSize_13px;
+                        margin-left: -143px;
+                    }
+                }
+                .CopyUrlGenerated{
+                    width: 720px;
+                    margin: auto;
+                    display: flex;
+                    align-items: center;
+                    margin-top: 41px;
+                    .CopyUrlLink{
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                        margin-left: 24px;
+                        .CopyUrlText{
+                            margin-left: 4px;
+                        }
+                    }
+                }
             }
         }
     }
