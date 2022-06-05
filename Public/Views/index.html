@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Style/Css/Style.css">
+    <link rel="stylesheet" href="../Public/Views/Style/Css/Style.css">
     <title>Shrtnr - Home</title>
 </head>
-<body>
+<body id="Body">
     <div class="Container">
         <section class="Navigation">
             <nav>
                 <div class="Container">
                     <div class="LogoWrapper">
-                        <img src="./Assets/Images/Icons/ShrtnrLogo.svg" alt="" class="LogoImage">
+                        <img src="../Public/Views/Assets/Images/Icons/ShrtnrLogo.svg" alt="" class="LogoImage">
                     </div>
                 </div>
             </nav>
@@ -27,16 +27,17 @@
                     <p class="SectionDescription">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non cursus magna condimentum sed nibh egestas arcu, sed. Donec sed sed mauris eu tempus. Duis sem risus tellus dignissim laoreet. Ultrices ac elit blandit augue feugiat orci vitae.
                     </p>
-                    <form action="" class="GenerateUrlInputs">
-                        <input type="text" class="UrlInput" placeholder="Lnkshortner.com/">
-                        <input type="submit" class="GenerateUrlBtn" value="Generate Url">
+                    <form action="" method="POST" class="GenerateUrlInputs">
+                        <input type="text" name="UrlInput" class="UrlInput" placeholder="Lnkshortner.com/" value="{{OriginalUrl}}">
+                        <input type="submit" name="GenerateUrlBtn" class="GenerateUrlBtn" value="Generate Url">
                     </form>
                     <div class="CopyUrlGenerated">
                         <p class="GeneratedUrlLink" id="GeneratedUrlLink">
-                            Lnkshortner.com/{{name}}
+                            Lnkshortner.com/{{Slug}}
                         </p>
+                        <p>{{SearchQuery}}</p>
                         <div class="CopyUrlLink" id="CopyUrlLink">
-                            <img src="./Assets/Images/Icons/CopyLinkIcon.svg" alt="" class="CopyUrlIcon">
+                            <img src="../Public/Views/Assets/Images/Icons/CopyLinkIcon.svg" alt="" class="CopyUrlIcon">
                             <p class="CopyUrlText">Copy Url</p>
                         </div>
                     </div>
@@ -44,6 +45,7 @@
             </main>
         </section>
     </div>
-    <script src="./Scripts/CopyUrl.js" />
+    <script src="../Public/Views/Scripts/CopyUrl.js"></script>
+    <!--<script src="../Public/Views/Scripts/KeyPressed.js"></script>-->
 </body>
 </html>
