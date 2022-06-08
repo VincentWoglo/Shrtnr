@@ -35,9 +35,15 @@
 
         }
 
-        function RedirectToMainUrl()
+        function RedirectToMainUrl($UrlSlug)
         {
-
+            $CRUD = new CRUD;
+            $DbSlug = $CRUD->RetrieveSlug($UrlSlug);
+            var_dump($DbSlug["SlugGenerated"]);
+            if($UrlSlug === $DbSlug["SlugGenerated"])
+            {
+                header("Location: ".$DbSlug["OriginalUrl"]);
+            }
         }
     }
 ?>

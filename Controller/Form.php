@@ -2,9 +2,7 @@
     require('../vendor/autoload.php');
     use Model\DataBase;
     use Controller\Functions;
-
-    $Connections = new DataBase;
-    $Connections->Connect();
+    error_reporting(1);
 
     //Generate numbers and letter. Max = 7
     //Store generated value in database along with the Url passed in
@@ -15,8 +13,6 @@
     $Functions = new Functions;
     $GeneratedSlug = $Functions->GenerateUrlSlug($MaxRandomized, $Characters, $FinalResult);
     $Functions->StoreGeneratedUrl($GeneratedSlug);
-
-
     //Send data to the index.html in the Views folder
     $loader = new \Twig\Loader\FilesystemLoader('../Public/Views');
     $twig = new \Twig\Environment($loader);

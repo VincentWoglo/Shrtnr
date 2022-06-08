@@ -20,8 +20,13 @@
             $PerpareInsert->execute($Data);
         }
 
-        function RetrieveData(){
-
+        function RetrieveSlug($UrlSlug){
+            $Connection = $this->Connect();
+            $Select = $Connection->prepare("SELECT *
+            FROM linkgenerated WHERE SlugGenerated = :UrlSlug");
+            $Select->execute(["UrlSlug"=>$UrlSlug]);
+            $Retrieve = $Select->fetch();
+            return $Retrieve;
         }
     }
 ?>
