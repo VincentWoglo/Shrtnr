@@ -2,6 +2,7 @@
     namespace Controller;
     require('../vendor/autoload.php');
     use Model\CRUD;
+    use Controller\Functions;
 
     class Functions
     {
@@ -9,7 +10,6 @@
         //$MaxRandomized, $Characters, $FinalResult
         function GenerateUrlSlug($MaxRandomized, $Characters, $FinalResult)
         {
-
             for($I=0; $I<$MaxRandomized; $I++)
             {
                 $Index = rand(0, strlen($Characters)-1);
@@ -18,19 +18,22 @@
             return $FinalResult;
         }
 
-        function StoreGeneratedUrl($Slug)
+        function StoreGeneratedUrl($MaxRandomized, $Characters, $FinalResult)
         {
-            
-            $Input = $_REQUEST["UrlInput"];
-            $InputBtn = $_REQUEST["GenerateUrlBtn"];
-
             //Check if the button is clicked
             //Take input filtered/validated value as paremeter and store it into the database
             //Call insert function from the model
             //Pass in Data from paremeter
+            $Input = $_REQUEST["UrlInput"];
+            $InputBtn = $_REQUEST["GenerateUrlBtn"];
+
             if($InputBtn){
-                $CRUD = new CRUD;
-                $CRUD->InsertData($Slug,$Input);
+                $Functions = new Functions;
+                $GeneratedSlug = $Functions->GenerateUrlSlug($MaxRandomized, $Characters, $FinalResult);
+                
+                $CRUD = new CRUD; 
+                $CRUD->InsertData($GeneratedSlug,$Input);
+                return $GeneratedSlug;
             }
 
         }
@@ -39,11 +42,7 @@
         {
             $CRUD = new CRUD;
             $DbSlug = $CRUD->RetrieveSlug($UrlSlug);
-            var_dump($DbSlug["SlugGenerated"]);
-            if($UrlSlug === $DbSlug["SlugGenerated"])
-            {
-                header("Location: ".$DbSlug["OriginalUrl"]);
-            }
+            if($UrlSlug === $DbSlug["SlugGenerated"]){header("Location: ".$DbSlug["OriginalUrl"]);}
         }
     }
 ?>
