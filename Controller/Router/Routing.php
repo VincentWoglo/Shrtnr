@@ -6,4 +6,6 @@
             require_once($File);
         }
     }
+    
+    var_dump(__DIR__);
 ?>

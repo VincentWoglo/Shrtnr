@@ -2,6 +2,7 @@
 
     namespace Model;
     use PDO;
+    error_reporting(0);
 
     class DataBase
     {

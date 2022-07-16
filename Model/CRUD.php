@@ -1,6 +1,7 @@
 <?php
     namespace Model;
-    require('../vendor/autoload.php');
+    include_once('C:\xampp\htdocs\Shrtnr\vendor\autoload.php');
+    error_reporting(0);
     use Model\DataBase;
 
 

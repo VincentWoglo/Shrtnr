@@ -27,10 +27,15 @@
                     <p class="SectionDescription">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non cursus magna condimentum sed nibh egestas arcu, sed. Donec sed sed mauris eu tempus. Duis sem risus tellus dignissim laoreet. Ultrices ac elit blandit augue feugiat orci vitae.
                     </p>
-                    <form action="" method="GET" class="GenerateUrlInputs">
-                        <input type="text" name="UrlInput" class="UrlInput" placeholder="Lnkshortner.com/" value="{{OriginalUrl}}">
-                        <input type="submit" name="GenerateUrlBtn" class="GenerateUrlBtn" value="Generate Url">
+                    <form method="POST" class="GenerateUrlInputs" id="GenerateUrlInputs">
+                        <input type="text" name="UrlInput" class="UrlInput" id="UrlInput" placeholder="Lnkshortner.com/" value="{{OriginalUrl}}">
+                        <input type="submit" name="GenerateUrlBtn" id="GenerateUrlBtn" class="GenerateUrlBtn" value="Generate Url">
                     </form>
+                    <div class="Error">
+                        <p class="ErrorInnerText" id="status"  style="color: red; width: 724px; margin: auto; margin-top: 24px; font-weight: 700px;">
+                            {{ErrorStatus}}
+                        </p>
+                    </div>
                     <div class="CopyUrlGenerated">
                         <p class="GeneratedUrlLink" id="GeneratedUrlLink">
                             Lnkshortner.com/{{Slug}}
@@ -46,6 +51,6 @@
         </section>
     </div>
     <script src="../../Public/Views/Scripts/CopyUrl.js"></script>
-    <!--<script src="../Public/Views/Scripts/KeyPressed.js"></script>-->
+    <script src="../../Public/Views/Scripts/Validation/Validation.js"></script>
 </body>
 </html>

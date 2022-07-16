@@ -1,29 +1,29 @@
 <?php
-    require('../vendor/autoload.php');
-    use Model\DataBase;
-    use Controller\Functions;
+    include_once('C:\xampp\htdocs\Shrtnr\vendor\autoload.php');
+    use Controller\Validation\InputValidation;
+    session_start();
     error_reporting(0);
+    
+    //use constructor to get $_REQUEST inputs in the InputValidation class
+    //and also the Funtions class
+    $InputValidation = new InputValidation;
+    $InputValidation->ValidateInput();
+    $Input = $_REQUEST["UrlInput"];
+    $InputBtn = $_REQUEST["GenerateUrlBtn"];
+    //var_dump($Input);
+    //var_dump($InputBtn);
+    // echo $_SESSION["ErrorStatus"];
+    
+    // $_SESSION["GenerateUrlBtn"] = $InputBtn;
+    // $_SESSION["UrlInput"] = $Input;
 
-
-    $Characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    $FinalResult = "";
-    $MaxRandomized = 7;
-    $Functions = new Functions;
-    $GeneratedSlug = $Functions->StoreGeneratedUrl($MaxRandomized, $Characters, $FinalResult);
-    //Generate numbers and letter. Max = 7
-    //Store generated value in database along with the Url passed in
-
-    // $Characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    // $FinalResult = "";
-    // $MaxRandomized = 7;
-    // $Functions = new Functions;
-    // $GeneratedSlug = $Functions->GenerateUrlSlug($MaxRandomized, $Characters, $FinalResult);
-    // $Functions->StoreGeneratedUrl($GeneratedSlug);
+    //use session to gain access to GeneratedSlug
     //Send data to the index.html in the Views folder
     $loader = new \Twig\Loader\FilesystemLoader('../Public/Views');
     $twig = new \Twig\Environment($loader);
     echo $twig->render("index.html", [
-        "Slug" => $GeneratedSlug,
-        "OriginalUrl" => $_REQUEST["UrlInput"]
+        //"Slug" => $_SESSION['GeneratedSlug'],
+        "OriginalUrl" => $_REQUEST["UrlInput"], 
+        "ErrorStatus" => $_SESSION["ErrorStatus"]
     ]);
 ?>
