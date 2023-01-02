@@ -1,8 +1,8 @@
 <?php
-    include_once('C:\xampp\htdocs\Shrtnr\vendor\autoload.php');
+    include_once(__DIR__.'/../vendor/autoload.php');
     use Controller\Validation\InputValidation;
     session_start();
-    error_reporting(0);
+    error_reporting(1);
     
     //use constructor to get $_REQUEST inputs in the InputValidation class
     //and also the Funtions class

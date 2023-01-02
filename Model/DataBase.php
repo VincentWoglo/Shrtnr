@@ -23,7 +23,7 @@
         {
             try
             {
-                $this->Connection = new PDO("mysql:host=$this->Host;dbname=shrtnr", $this->Username, $this->Password);
+                $this->Connection = new PDO("mysql:host=$this->Host;dbname=Shrtnr", $this->Username, $this->Password);
                 $this->Connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 return $this->Connection;
             }

@@ -1,7 +1,8 @@
 <?php
     namespace Controller;
-    include_once('C:\xampp\htdocs\Shrtnr\vendor\autoload.php');
-    error_reporting(0);
+    include_once(__DIR__.'/../vendor/autoload.php');
+    error_reporting(1);
+    
     use Model\CRUD;
     use Controller\Functions;
     session_start();
