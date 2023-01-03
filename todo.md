@@ -1,4 +1,4 @@
-[] Fix router
+[x] Fix router
 [] Clear comment
 [] Create docker container
 [] Refactor model(use query builders)

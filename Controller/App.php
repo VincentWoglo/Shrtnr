@@ -19,7 +19,7 @@
 
     //use session to gain access to GeneratedSlug
     //Send data to the index.html in the Views folder
-    $loader = new \Twig\Loader\FilesystemLoader('../Public/Views');
+    $loader = new \Twig\Loader\FilesystemLoader('../Views');
     $twig = new \Twig\Environment($loader);
     echo $twig->render("index.html", [
         //"Slug" => $_SESSION['GeneratedSlug'],
