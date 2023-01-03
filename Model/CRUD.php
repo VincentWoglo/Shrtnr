@@ -1,6 +1,6 @@
 <?php
     namespace Model;
-    include_once('C:\xampp\htdocs\Shrtnr\vendor\autoload.php');
+    include_once(__DIR__.'/../vendor/autoload.php');
     error_reporting(0);
     use Model\DataBase;
 

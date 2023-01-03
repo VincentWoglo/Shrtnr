@@ -1,7 +1,7 @@
 <?php
 
     namespace Controller\Validation;
-    include_once('C:\xampp\htdocs\Shrtnr\vendor\autoload.php');
+    include_once(__DIR__.'/../../vendor/autoload.php');
     session_start();
     error_reporting(0);
     use Model\CRUD;

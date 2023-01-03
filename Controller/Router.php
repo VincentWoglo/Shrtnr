@@ -1,6 +1,9 @@
 <?php
-    include_once('../vendor/autoload.php');
-    error_reporting(0);
+    include_once(__DIR__.'/../vendor/autoload.php');
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
+    
     use Phroute\Phroute\RouteCollector;
     use Controller\Router\Routing;
     use Controller\Functions;
