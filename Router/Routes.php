@@ -1,17 +1,16 @@
 <?php
-    include_once(__DIR__.'/../vendor/autoload.php');
     ini_set('display_errors', '1');
     ini_set('display_startup_errors', '1');
     error_reporting(E_ALL);
     
+    use Router\Loader;
     use Phroute\Phroute\RouteCollector;
-    use Controller\Router\Routing;
     use Controller\Functions;
     $router = new RouteCollector;
-   // $View = new Routing;
 
-
-    $router->get("/app", require_once("Form.php"));
+    $router->get("/app", function(){
+        Loader::Controller('Controller','App');
+    });
     $router->get("/", function(){
         header("Location: http://localhost/Shrtnr/Controller/Router.php/app");
     });

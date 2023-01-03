@@ -7,7 +7,8 @@
     "autoload": {
         "psr-4": {
             "Model\\": "Model/",
-            "Controller\\": "Controller/"
+            "Controller\\": "Controller/",
+            "Router\\": "Router/"
         }
     },
     "require-dev": {
