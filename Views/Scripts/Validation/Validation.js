@@ -19,6 +19,7 @@ const CheckUrlPattern = (event)=>{
         :TargetedInput.style.border="1px solid #d9d9d9"
     });
 }
+
 const SendDataToPHP = (event)=>{
     //event.preventDefault()
     let form = document.getElementById("GenerateUrlInputs");
@@ -33,9 +34,11 @@ const SendDataToPHP = (event)=>{
         //Xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded", "application/json")
         Xhr.onload = ()=>{
             if(Xhr.readyState ==4 && Xhr.status == 200){
-                let ReturnedData = Xhr.responseText
+                let ReturnedData = JSON.parse(Xhr.response)
+                console.log(ReturnedData.GeneratedSlug)
                 console.log(ReturnedData)
-                document.getElementById( "status" ).innerHTML = ReturnedData
+                document.getElementById( "status" ).innerHTML = ReturnedData.Error
+                ReturnedData.GeneratedSlug != null ? document.getElementById( "GeneratedUrlLink" ).innerHTML = "Lnkshortner.com/"+ReturnedData.GeneratedSlug : "Nothing"
             }
         }
         Xhr.send(data)
@@ -48,7 +51,7 @@ const ValidateUrl = (e)=>{
     e.preventDefault()
     CheckUrlPattern()
     SendDataToPHP()
-    //SendDataToPHP()
+    //SendDataT
     /*Use Ajax to send info to php because we need to know if there is an error
     Prevent data from being submitted if there is an error with the URL
     */
@@ -57,6 +60,5 @@ const ValidateUrl = (e)=>{
 //Do both front-end valdidation and back end validation
 //On front-end only make the border red
 //Get the text from the back-end with ajax
-console.log(GenerateUrlBtn)
 
 GenerateUrlBtn.addEventListener("click", ValidateUrl, false)

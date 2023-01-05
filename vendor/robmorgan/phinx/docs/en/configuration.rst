@@ -144,11 +144,35 @@ Custom Seeder Base
 
 By default all seeders will extend from Phinx's `AbstractSeed` class.
 This can be set to a custom class that extends from `AbstractSeed` by
-setting ``seeder_base_class`` in your config:
+setting ``seed_base_class`` in your config:
 
 .. code-block:: yaml
 
-    seeder_base_class: MyMagicalSeeder
+    seed_base_class: MyMagicalSeeder
+
+Custom Migration Template
+-------------------------
+
+Custom template for Migrations could be used either by defining template file path
+in configuration file:
+
+.. code-block:: yaml
+
+    templates:
+        file: src/templates/customMigrationTemplate.php
+
+
+Custom Seeder Template
+----------------------
+
+Custom Seeder template could be used either by defining template file path
+in configuration file:
+
+.. code-block:: yaml
+
+    templates:
+        seedFile: src/templates/customSeederTemplate.php
+
 
 Environments
 ------------
@@ -335,10 +359,10 @@ Supported Adapters
 
 Phinx currently supports the following database adapters natively:
 
-* `MySQL <http://www.mysql.com/>`_: specify the ``mysql`` adapter.
-* `PostgreSQL <http://www.postgresql.org/>`_: specify the ``pgsql`` adapter.
-* `SQLite <http://www.sqlite.org/>`_: specify the ``sqlite`` adapter.
-* `SQL Server <http://www.microsoft.com/sqlserver>`_: specify the ``sqlsrv`` adapter.
+* `MySQL <https://www.mysql.com/>`_: specify the ``mysql`` adapter.
+* `PostgreSQL <https://www.postgresql.org/>`_: specify the ``pgsql`` adapter.
+* `SQLite <https://www.sqlite.org/>`_: specify the ``sqlite`` adapter.
+* `SQL Server <https://www.microsoft.com/sqlserver>`_: specify the ``sqlsrv`` adapter.
 
 For each adapter, you may configure the behavior of the underlying PDO object by setting in your
 config object the lowercase version of the constant name. This works for both PDO options

@@ -172,7 +172,7 @@ Executing Queries
 Queries can be executed with the ``execute()`` and ``query()`` methods. The
 ``execute()`` method returns the number of affected rows whereas the
 ``query()`` method returns the result as a
-`PDOStatement <http://php.net/manual/en/class.pdostatement.php>`_. Both methods
+`PDOStatement <https://php.net/manual/en/class.pdostatement.php>`_. Both methods
 accept an optional second parameter ``$params`` which is an array of elements,
 and if used will cause the underlying connection to use a prepared statement.
 
@@ -237,7 +237,7 @@ and if used will cause the underlying connection to use a prepared statement.
     If Phinx was to iterate any potential result sets, looking to see if one
     had an error, then Phinx would be denying access to all the results as there
     is no facility in PDO to get a previous result set
-    `nextRowset() <http://php.net/manual/en/pdostatement.nextrowset.php>`_ -
+    `nextRowset() <https://php.net/manual/en/pdostatement.nextrowset.php>`_ -
     but no ``previousSet()``).
 
     So, as a consequence, due to the design decision in PDO to not throw
@@ -246,8 +246,8 @@ and if used will cause the underlying connection to use a prepared statement.
 
     Fortunately though, all the features of PDO are available, so multiple batches
     can be controlled within the migration by calling upon
-    `nextRowset() <http://php.net/manual/en/pdostatement.nextrowset.php>`_
-    and examining `errorInfo <http://php.net/manual/en/pdostatement.errorinfo.php>`_.
+    `nextRowset() <https://php.net/manual/en/pdostatement.nextrowset.php>`_
+    and examining `errorInfo <https://php.net/manual/en/pdostatement.errorinfo.php>`_.
 
 Fetching Rows
 -------------
@@ -825,7 +825,7 @@ timezone enable or disable the ``with time zone`` option for ``time`` and ``time
 
 You can add ``created_at`` and ``updated_at`` timestamps to a table using the ``addTimestamps()`` method. This method accepts
 three arguments, where the first two allow setting alternative names for the columns while the third argument allows you to
-enable the ``timezone`` option for the columns. The defaults for these arguments are ``created_at``, ``updated_at``, and ``true``
+enable the ``timezone`` option for the columns. The defaults for these arguments are ``created_at``, ``updated_at``, and ``false``
 respectively. For the first and second argument, if you provide ``null``, then the default name will be used, and if you provide
 ``false``, then that column will not be created. Please note that attempting to set both to ``false`` will throw a
 ``\RuntimeException``. Additionally, you can use the ``addTimestampsWithTimezone()`` method, which is an alias to
@@ -886,12 +886,13 @@ encoding  set character set that differs from table defaults *(only applies to M
 
 For foreign key definitions:
 
-====== ===========
-Option Description
-====== ===========
-update set an action to be triggered when the row is updated
-delete set an action to be triggered when the row is deleted
-====== ===========
+========== ===========
+Option     Description
+========== ===========
+update     set an action to be triggered when the row is updated
+delete     set an action to be triggered when the row is deleted
+constraint set a name to be used by foreign key constraint
+========== ===========
 
 You can pass one or more of these options to any column with the optional
 third argument array.
@@ -1194,8 +1195,8 @@ where its value is the name of the column to position it after.
             }
         }
 
-This would create the new column ``city`` and position it after the ``email`` column. You
-can use the `\Phinx\Db\Adapter\MysqlAdapter\FIRST` constant to specify that the new column should
+This would create the new column ``city`` and position it after the ``email`` column. The 
+``\Phinx\Db\Adapter\MysqlAdapter::FIRST`` constant can be used to specify that the new column should be
 created as the first column in that table.
 
 Dropping a Column

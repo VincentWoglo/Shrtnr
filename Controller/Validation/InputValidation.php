@@ -17,7 +17,7 @@
 
         function ValidateInput(){
             $Error = [];
-            //if( $_REQUEST["GenerateUrlBtn"] ){ 
+            if( $_REQUEST["GenerateUrlBtn"] ){ 
                 $MatchedRegex = preg_match("%^((https?://)|(www\.))([a-z0-9-].?)+(:[0-9]+)?(/.*)?$%i",$_REQUEST["UrlInput"]);
                 if(empty($_REQUEST["UrlInput"])){ array_push($Error, "Please enter a URL"); }
                 
@@ -38,12 +38,17 @@
                     
                 }
                  
-            //}
+            }
             else{ /*echo "Not Clicked"; Do Nothing*/}
 
             //Display errors in the array
-            echo $Error[0];
-            echo $GeneratedSlug;
+            $FinalResult = array(
+                'Error' => $Error[0],
+                'GeneratedSlug' => $GeneratedSlug
+            );
+            echo json_encode($FinalResult);
+            // echo $Error[0];
+            // echo $GeneratedSlug;
             //echo $_REQUEST;
             //var_dump($Error);
         }

@@ -832,12 +832,30 @@ PCRE_PATTERN;
                 $state['selectColumns']
             );
 
+            $rows = $this->fetchAll(
+                sprintf(
+                    "
+                        SELECT *
+                        FROM sqlite_master
+                        WHERE
+                            (`type` = 'index' OR `type` = 'trigger')
+                            AND tbl_name = %s
+                            AND sql IS NOT NULL
+                    ",
+                    $this->quoteValue($tableName)
+                )
+            );
+
             $this->execute(sprintf('DROP TABLE %s', $this->quoteTableName($tableName)));
             $this->execute(sprintf(
                 'ALTER TABLE %s RENAME TO %s',
                 $this->quoteTableName($state['tmpTableName']),
                 $this->quoteTableName($tableName)
             ));
+
+            foreach ($rows as $row) {
+                $this->execute($row['sql']);
+            }
 
             return $state;
         });
@@ -1345,7 +1363,7 @@ PCRE_PATTERN;
                     );
                     $createIndexSQL = $this->getDeclaringIndexSQL($tableName, $indexName);
                     $sql .= preg_replace(
-                        "/\b${tableName}\b/",
+                        "/\b{$tableName}\b/",
                         $tmpTableName,
                         $createIndexSQL
                     );

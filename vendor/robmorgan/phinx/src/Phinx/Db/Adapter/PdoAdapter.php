@@ -73,7 +73,7 @@ abstract class PdoAdapter extends AbstractAdapter implements DirectActionInterfa
      * @param string $dsn Connection string
      * @param string|null $username Database username
      * @param string|null $password Database password
-     * @param array<string, mixed> $options Connection options
+     * @param array<int, mixed> $options Connection options
      * @return \PDO
      */
     protected function createPdoConnection(string $dsn, ?string $username = null, ?string $password = null, array $options = []): PDO
@@ -581,7 +581,7 @@ abstract class PdoAdapter extends AbstractAdapter implements DirectActionInterfa
     /**
      * Retrieve a database connection attribute
      *
-     * @see http://php.net/manual/en/pdo.getattribute.php
+     * @see https://php.net/manual/en/pdo.getattribute.php
      * @param int $attribute One of the PDO::ATTR_* constants
      * @return mixed
      */

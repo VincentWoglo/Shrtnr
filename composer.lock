@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4907fa7c80b871c0329f3877a0e4b562",
+    "content-hash": "a4028c038f5b3ff913ac67d3d0179751",
     "packages": [
         {
             "name": "cakephp/core",
@@ -440,16 +440,16 @@
         },
         {
             "name": "robmorgan/phinx",
-            "version": "0.13.1",
+            "version": "0.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/phinx.git",
-                "reference": "eccde746d7afa08f0df880f68dcbc475d001de7f"
+                "reference": "da741d10879bcdd235a830d589ae51659f746262"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/phinx/zipball/eccde746d7afa08f0df880f68dcbc475d001de7f",
-                "reference": "eccde746d7afa08f0df880f68dcbc475d001de7f",
+                "url": "https://api.github.com/repos/cakephp/phinx/zipball/da741d10879bcdd235a830d589ae51659f746262",
+                "reference": "da741d10879bcdd235a830d589ae51659f746262",
                 "shasum": ""
             },
             "require": {
@@ -520,9 +520,9 @@
             ],
             "support": {
                 "issues": "https://github.com/cakephp/phinx/issues",
-                "source": "https://github.com/cakephp/phinx/tree/0.13.1"
+                "source": "https://github.com/cakephp/phinx/tree/0.13.3"
             },
-            "time": "2022-10-09T23:43:15+00:00"
+            "time": "2022-12-01T16:30:23+00:00"
         },
         {
             "name": "symfony/config",
