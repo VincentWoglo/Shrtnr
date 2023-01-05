@@ -6,6 +6,9 @@
     padding: 0;
     scroll-behavior: smooth;
 }
+pre{
+    display: none;
+}
 body{
     font-family: Fonts.$InterFont;
     font-weight: Fonts.$FontWeight_500;

@@ -38,7 +38,8 @@ const SendDataToPHP = (event)=>{
                 console.log(ReturnedData.GeneratedSlug)
                 console.log(ReturnedData)
                 document.getElementById( "status" ).innerHTML = ReturnedData.Error
-                ReturnedData.GeneratedSlug != null ? document.getElementById( "GeneratedUrlLink" ).innerHTML = "Lnkshortner.com/"+ReturnedData.GeneratedSlug : "Nothing"
+                ReturnedData.GeneratedSlug != null ? document.getElementById( "GeneratedUrlLink" ).innerHTML = "Lnkshortner.com/"+ReturnedData.GeneratedSlug 
+                                                    : "Nothing"
             }
         }
         Xhr.send(data)
