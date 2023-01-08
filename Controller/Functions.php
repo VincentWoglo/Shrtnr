@@ -19,6 +19,7 @@
                 $Index = rand(0, strlen($Characters)-1);
                 $FinalResult .= $Characters[$Index];
             }
+
             return $FinalResult;
         }
 
@@ -36,6 +37,7 @@
                 $CRUD = new CRUD; 
                 //take input on the InputValidation class
                 $CRUD->InsertData($GeneratedSlug,$Input);
+
                 return $GeneratedSlug;
             //}
 
@@ -45,8 +47,8 @@
         {
             $CRUD = new CRUD;
             $DbSlug = $CRUD->RetrieveSlug($UrlSlug);
-            var_dump($DbSlug);
-            if($UrlSlug === $DbSlug["SlugGenerated"]){header("Location: ".$DbSlug["OriginalUrl"]);}
+
+            if($UrlSlug === $DbSlug["SlugGenerated"]) header("Location: ".$DbSlug["OriginalUrl"]);
         }
     }
 ?>

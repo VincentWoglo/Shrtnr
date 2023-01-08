@@ -18,6 +18,7 @@
         $Functions = new Functions;
         $Functions->RedirectToMainUrl($id);
     });
+    //Show 404 if route doesn't exist
     $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
     $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO']);
     // Print out the value returned from the dispatched function

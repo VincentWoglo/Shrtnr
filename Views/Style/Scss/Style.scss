@@ -9,20 +9,95 @@
 pre{
     display: none;
 }
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 body{
     font-family: Fonts.$InterFont;
     font-weight: Fonts.$FontWeight_500;
     //background: radial-gradient(circle at center,#502D7B, rgba(69, 172, 216, 0));
 }
 .Container{
+    max-width: 1200px;
+    width: 85%;
+    margin: auto;
     .Navigation{
+        padding: 24px 0;
         nav{
             .Container{
-                width: 1244px;
+                width: 100%;
                 margin: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 .LogoWrapper{
                     .LogoImage{
                     cursor: pointer;
+                    }
+                }
+                .LoginCTAWrapper{
+                    .NavLoginBuitton{
+                        padding: 10px;
+                        font-size: 16px;
+                        font-weight: 600;
+                        border-radius: 10px;
+                        cursor: pointer;
+                    }
+                    .NavLogin{
+                        border: 1px Colors.$Black solid;
+                        color: Colors.$White;
+                        background-color: Colors.$Black;
+                    }
+                    .NavSignUp{
+                        border: 1px Colors.$Black solid;
+                        color: Colors.$Black;
+                        background-color: Colors.$White;
+                        margin-left: 20px
                     }
                 }
             }
@@ -32,34 +107,37 @@ body{
         margin-top: 150px;
         main{
             .Container{
-                width: 1244px;;
+                width: 100%;;
                 margin: auto;
                 .SectionTitle, .SectionDescription{
                     text-align: center;
                 }
                 .SectionTitle{
                     font-size: Fonts.$FontSize_64px;
-                    width: 681px;
+                    max-width: 681px;
+                    width: 70%;
                     margin: auto;
+                    font-weight: 700;
                 }
                 .SectionDescription{
-                    width: 803px;
+                    max-width: 803px;
+                    width: 90%;
                     margin: auto;
                     font-size: Fonts.$FontSize_18px;
                     margin-top: 24px;
                     line-height: 150%;
                 }
                 .GenerateUrlInputs{
-                    margin: auto;
-                    width: 790px;
-                    margin-top: 46px;
+                    max-width: 790px;
+                    margin: 46px auto auto;
+                    width: 85%;
                     .UrlInput{
                         position: relative;
-                        width: 712px;
-                        padding: 16px 32px 16px 32px;
+                        padding: 16px 32px;
                         border-radius: 10px;
-                        border: 1px Colors.$Grey solid;
-                        outline: 0 none;
+                        border: 1px #d9d9d9 solid;
+                        outline: 0;
+                        width: 100%;
                         &::placeholder{
                             color: Colors.$DarkGrey;
                         }

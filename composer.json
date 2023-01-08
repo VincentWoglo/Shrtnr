@@ -1,8 +1,10 @@
 {
     "require": {
-        "twig/twig": "^3.4",
+        "twig/twig": "^3.0",
         "phroute/phroute": "^2.2",
-        "robmorgan/phinx": "^0.13.3"
+        "robmorgan/phinx": "^0.13.3",
+        "symfony/dotenv": "^6.2",
+        "vlucas/phpdotenv": "^5.5"
     },
     "autoload": {
         "psr-4": {

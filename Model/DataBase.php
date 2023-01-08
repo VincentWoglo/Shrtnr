@@ -1,12 +1,17 @@
 <?php
 
     namespace Model;
+
+    error_reporting(1);
+
+    use Dotenv\Dotenv;
     use PDO;
-    error_reporting(0);
+
+    $dotenv = Dotenv::createImmutable(__DIR__, ".env.Connection");
+    $dotenv->load();
 
     class DataBase
     {
-
         private $Host = "localhost";
         private $Password = "";
         private $Username = "root";
@@ -23,7 +28,7 @@
         {
             try
             {
-                $this->Connection = new PDO("mysql:host=$this->Host;dbname=Shrtnr", $this->Username, $this->Password);
+                $this->Connection = new PDO("mysql:host=$this->Host;dbname=".$_ENV['DBNAME'], $this->Username, $this->Password);
                 $this->Connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 return $this->Connection;
             }

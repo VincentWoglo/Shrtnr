@@ -20,3 +20,11 @@ Familiar with:
 — Amazon Merchant Web Services (MWS)
 — Vagrant VMs
 — Python Flask
+
+
+
+https://docs.spring.io/spring-framework/docs/3.0.0.M4/reference/html/ch05s02.html
+
+https://docs.oracle.com/javaee/6/tutorial/doc/bnauw.html
+
+https://stackoverflow.com/questions/1686174/when-should-one-use-interfaces
