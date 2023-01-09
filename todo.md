@@ -5,4 +5,4 @@
 [] Add auth
 [] Add login feature
 [] Configure domain
-[] Fix slig generator issue
+[] Fix slug generator issue

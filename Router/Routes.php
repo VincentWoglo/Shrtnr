@@ -5,19 +5,22 @@
     
     use Router\Loader;
     use Phroute\Phroute\RouteCollector;
-    use Controller\Functions;
+    use Controller\UrlController;
+
     $router = new RouteCollector;
 
     $router->get("/app", function(){
         Loader::Controller('Controller','App');
     });
+
     $router->get("/", function(){
         header("Location: http://localhost/Shrtnr/Controller/Router.php/app");
     });
+
     $router->get("/{id:a}", function($id){
-        $Functions = new Functions;
-        $Functions->RedirectToMainUrl($id);
+        UrlController::RedirectToMainUrl($id);
     });
+    
     //Show 404 if route doesn't exist
     $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
     $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO']);
