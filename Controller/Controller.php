@@ -11,45 +11,66 @@
         }
 
         /**
-         * Checks if there are file exists in directory 
-         * Redirect to 404 if file doesn't exist
+         * Load the pages in the Views folder
+         * 
+         * @param string $FilePath
          */
-        private static function Load($Directory, $Path){
-            $FullPath = __DIR__.'/../'.$Directory.'/'.$Path.'.php';
-
-            if(file_exists($FullPath))
-                require_once($FullPath);
-            else
-                self::View('Views', '404');
+        public static function View($FIlePath): void
+        {
+            require_once(__DIR__.'/../Views/'.$FIlePath.'.php');
         }
+
+        
+        /**
+         * Checks if the file being loaded exist and returns false if not
+         * 
+         * @param string $directory
+         * @param string $fileName
+         */
+        private static function fileExist($directory, $fileName): bool
+        {
+            if(file_exists(__DIR__.'/'.$fileName.'.php'))
+                return true;
+            return false;
+        }
+
 
         /**
-         * Loads controllers from the Controller folder
-         * Takes path and sends data to view in form of an array
+         * @param string $controllerName
+         * @param string $function
+         * @param array $data
          */
-        public static function Make($ControllerName, $Data = []) : void
+        private static function instantiateClass($controllerName, $function, $data): void
         {
-            extract($Data);
-            self::Load('Controller', $ControllerName);
+            $classWithNameSpace = '\Controller\\'.$controllerName;
+            var_dump($classWithNameSpace);
+            $controller = new $classWithNameSpace($data);
+            $controller->$function();
         }
+
 
         /**
-         * Loads page from the Views folder
-         * Takes path and data sent to Controller
+         * Instantiate a class in the Controller folder
+         * And also call function from the controller class
+         * 
+         * @param string $controlName
+         * @param array The $data param allow you to pass data from Controller to View
          */
-        public static function View($ViewName, $Data = []) : void
+        public static function controller($controllerName, $data = []): void
         {
-            extract($Data);
-            self::Load("Views", $ViewName);
-        }
+            $controllerArray = explode("@", $controllerName);
+            
+            //handle if file exist
+            if(self::fileExist('Controller', $controllerArray[0]) == false)
+                echo "Controller Does Not Exist"; //Show 404 view
 
-        /**
-         * Redirects to controller
-         */
-        public static function Redirect($ControllerName)
-        {
-            header('Location: '.$ControllerName);
-        }
+            if(str_contains($controllerName, "@")){
+                extract($data);
 
+                require_once(__DIR__.'/'.$controllerArray[0].'.php');
+
+                self::instantiateClass($controllerArray[0], $controllerArray[1], $data);
+            }
+        }
     }
 ?>

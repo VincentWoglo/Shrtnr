@@ -3,7 +3,7 @@
     ini_set('display_startup_errors', '1');
     error_reporting(E_ALL);
     
-    use Router\Loader;
+    // use Router\Loader;
     use Phroute\Phroute\RouteCollector;
     use Controller\Controller;
     use Controller\UrlController;
@@ -11,7 +11,8 @@
     $router = new RouteCollector;
 
     $router->get("/app", function(){
-        Controller::Make('App');
+        // Controller::Make('App');
+        Controller::controller('App@main');
     });
 
     $router->get("/", function(){
