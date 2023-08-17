@@ -1,4 +1,4 @@
 <?php
     include_once(__DIR__.'/../vendor/autoload.php');
-    include_once(__DIR__.'/../Router/Routes.php');
+    include_once(__DIR__.'/../Routes/Web.php');
 ?>
