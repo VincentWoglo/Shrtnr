@@ -3,7 +3,6 @@
     use Controller\Validation\InputValidation;
     session_start();
     error_reporting(1);
-    echo "sd";
     
     $InputValidation = new InputValidation;
     $InputValidation->ValidateInput();
