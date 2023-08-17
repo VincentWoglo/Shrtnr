@@ -11,13 +11,14 @@
                 self::View('Views', '404');
         }
 
-        public static function Controller($Directory, $Path, $Data = []){
+        public static function Controller($Path, $Data = []){
             extract($Data);
-            self::Load($Directory, $Path);
+            self::Load("Controller", $Path);
+            return $Data;
         }
-        public static function View($Directory, $Path, $Data = []){
+        public static function View($Path, $Data = []){
             extract($Data);
-            self::Load($Directory, $Path);
+            self::Load("Views", $Path);
         }
     }
 ?>

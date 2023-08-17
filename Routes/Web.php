@@ -5,16 +5,22 @@
     
     use Router\Loader;
     use Phroute\Phroute\RouteCollector;
+    use Controller\Controller;
     use Controller\UrlController;
 
     $router = new RouteCollector;
 
     $router->get("/app", function(){
-        Loader::Controller('Controller','App');
+        Controller::Make('App');
     });
 
     $router->get("/", function(){
-        header("Location: http://localhost/Shrtnr/Controller/Router.php/app");
+        Controller::Redirect('Controller', 'App');
+        // header("Location: http://localhost/Shrtnr/Controller/Router.php/app");
+    });
+    $router->get("/test", function(){
+        Controller::Redirect('Controller', 'App');
+        // header("Location: http://localhost/Shrtnr/Controller/Router.php/app");
     });
 
     $router->get("/{id:a}", function($id){
